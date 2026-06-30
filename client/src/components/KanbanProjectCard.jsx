@@ -24,7 +24,7 @@ export default function KanbanProjectCard({ projectData }) {
 
   return (
     <div
-      className={`isolate bg-white rounded-t-md p-2 relative shadow before:content[''] ${status === "overdue" ? "before:bg-red-600" : status === "due-soon" ? "before:bg-orange-400" : status === "on-track" && "before:bg-tertiary-bg"} before:absolute before:top-full before:left-0 before:w-full before:p-1 before:rounded-b-md`}
+      className={`isolate bg-white rounded-t-md p-2 relative shadow before:content[''] ${projectData.status === "completed" ? "before:bg-tertiary-bg" : status === "overdue" ? "before:bg-red-600" : status === "due-soon" ? "before:bg-orange-400" : status === "on-track" && "before:bg-tertiary-bg"} before:absolute before:top-full before:left-0 before:w-full before:p-1 before:rounded-b-md`}
     >
       <div className="h-1 w-full bg-gray-300/50 rounded-full mb-1">
         <div

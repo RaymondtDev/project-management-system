@@ -8,7 +8,7 @@ export default function KanbanBoard({ projects }) {
     (project) => project.status === "on-hold",
   );
   const completeProjects = projects.filter(
-    (project) => project.status === "complete",
+    (project) => project.status === "completed",
   );
   const planningProjects = projects.filter(
     (project) => project.status === "planning",
@@ -38,7 +38,7 @@ export default function KanbanBoard({ projects }) {
       </div>
       <div className="bg-gray-100 rounded-md h-full flex flex-col">
         <div className="bg-[#07C700]  text-center py-2 text-white rounded-t-md">
-          Complete
+          Completed
         </div>
         <div className="p-1 flex flex-col flex-1 gap-3 overflow-y-auto scrollbar-none">
           {completeProjects?.map((project) => (
