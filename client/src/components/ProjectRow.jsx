@@ -72,7 +72,7 @@ export default function ProjectRow({ projectData, deleteFunc, cancelFunc }) {
             <div
               className={`p-1 px-1.5 rounded-full ${projectData.status === "completed" ? "bg-tertiary-bg text-white" : status === "due-soon" ? "bg-orange-400 text-white" : status === "overdue" ? "bg-red-600 text-white" : status === "on-track" && "bg-tertiary-bg text-white"}`}
             >
-              {status === "overdue" ? `Overdue: ${dueDate}` : projectData.status === "completed" ? "Completed" : `Due: ${dueDate}`}
+              {projectData.status === "completed" ? "Completed" : status === "overdue" ? `Overdue: ${dueDate}` : `Due: ${dueDate}`}
             </div>
           )}
         </div>
@@ -87,7 +87,7 @@ export default function ProjectRow({ projectData, deleteFunc, cancelFunc }) {
             delete
           </span>
         </div>
-        {projectData.status === "cancelled" ? (
+        {projectData.status === "cancelled" || projectData.status === "completed" ? (
           <div />
         ) : (
           <div

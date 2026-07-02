@@ -10,7 +10,7 @@ export default function ProjectStatsCard({ projectData, milestonesData }) {
           <div className="h-full bg-linear-to-r from-secondary-bg to-tertiary-bg rounded-full" style={{ width: `${projectData.progress}%` }}></div>
         </div>
       </div>
-      <div className="overflow-y-auto mt-4 flex-1">
+      <div className="flex flex-col gap-1 overflow-y-auto mt-4 flex-1">
         {milestonesData?.map((milestone, index) => (
           <div
             className="flex items-center justify-between gap-2"

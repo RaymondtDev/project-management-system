@@ -15,7 +15,7 @@ export default function StatusIndicators() {
       </div>
       <div className="flex items-center text-xs">
         <div className="w-2 h-2 bg-[#07C700] rounded-full mr-1" />
-        Complete
+        Completed
       </div>
       <div className="flex items-center text-xs">
         <div className="w-2 h-2 bg-[#ff0000] rounded-full mr-1" />

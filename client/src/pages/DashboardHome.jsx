@@ -6,12 +6,6 @@ function DashboardHome() {
   const { admin } = useAuth();
   const adminId = admin?.id;
   const { data, isLoading } = useProjects(adminId);
-  const projects = data.projects;
-
-  const totalProjects = projects?.length;
-  const completedProjects = projects?.filter((p) => p.status === "completed").length;
-  const activeProjects = projects?.filter((p) => p.status === "active").length;
-  const pendingProjects = projects?.filter((p) => p.status === "pending").length;
 
   if (isLoading)
     return (
@@ -22,29 +16,35 @@ function DashboardHome() {
       </div>
     );
 
+  const projects = data?.projects;
+  const totalProjects = projects?.length;
+  const completedProjects = projects?.filter((p) => p.status === "completed").length;
+  const activeProjects = projects?.filter((p) => p.status === "active").length;
+  const pendingProjects = projects?.filter((p) => p.status === "pending").length;
+
   return (
-    <div>
-      <div className="py-3">
-        <p>Welcome back, {admin.name}</p>
+    <div className="flex flex-col h-full">
+      <div className="py-3 px-2">
+        <p>Welcome back, {admin.username}</p>
       </div>
-      <div className="bg-gray-300 p-2">
+      <div className="bg-gray-300 p-2 flex-1 rounded-md grid grid-cols-4 grid-rows-4 gap-2">
         {/* Project Stats */}
-        <div className="grid grid-cols-4 gap-2">
-          <div className="p-4 rounded-md shadow-md bg-linear-90 from-secondary-bg to-tertiary-bg">
-            <h3>Total Projects</h3>
-            <p className="text-2xl">{totalProjects}</p>
+        <div className="col-span-4 grid grid-cols-subgrid gap-2">
+          <div className="text-white px-4 py-6 rounded-md shadow-md bg-linear-90 from-secondary-bg to-tertiary-bg">
+            <h4 className="mb-4">Total Projects</h4>
+            <p className="text-4xl">{totalProjects}</p>
           </div>
-          <div className="p-4 rounded-md shadow-md bg-white">
-            <h3>Completed Projects</h3>
-            <p className="text-2xl">{completedProjects}</p>
+          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+            <h4 className="mb-4">Completed Projects</h4>
+            <p className="text-4xl">{completedProjects}</p>
           </div>
-          <div className="p-4 rounded-md shadow-md bg-white">
-            <h3>Active Projects</h3>
-            <p className="text-2xl">{activeProjects}</p>
+          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+            <h4 className="mb-4">Active Projects</h4>
+            <p className="text-4xl">{activeProjects}</p>
           </div>
-          <div className="p-4 rounded-md shadow-md bg-white">
-            <h3>Pending Projects</h3>
-            <p className="text-2xl">{pendingProjects}</p>
+          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+            <h4 className="mb-4">Pending Projects</h4>
+            <p className="text-4xl">{pendingProjects}</p>
           </div>
         </div>
       </div>
