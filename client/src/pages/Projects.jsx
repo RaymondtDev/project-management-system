@@ -26,7 +26,7 @@ function Projects() {
 
   if (isError)
     return (
-      <div className="h-screnn flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center">
         No Projects Found
       </div>
     );
@@ -46,7 +46,7 @@ function Projects() {
           Add Project
         </button>
       </div>
-      <div className="my-4 rounded-lg bg-gray-300 flex flex-col flex-1 p-4">
+      <div className="my-4 rounded-lg bg-gray-300 flex flex-col flex-1 p-4 h-full">
         <div className="flex items-center justify-between mb-4">
           <div className="flex gap-1 p-1 bg-white rounded-full">
             <button

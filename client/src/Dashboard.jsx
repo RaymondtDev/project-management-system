@@ -33,7 +33,7 @@ function Dashboard() {
       <aside className="w-74 py-1.5 pl-1.5">
         <SidePanel />
       </aside>
-      <main className="p-6 h-full overflow-y-auto">
+      <main className="p-6 h-screen">
         <Outlet />
       </main>
     </div>

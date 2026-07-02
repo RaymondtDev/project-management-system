@@ -25,18 +25,18 @@ export default function SingleProject() {
   const milestones = project.milestones;
 
   return (
-    <>
+    <div className="h-full">
       <ToastContainer />
       <div className="grid grid-cols-2 gap-x-4 h-full">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 h-full min-h-0">
           <ProjectDetailsCard projectData={project} />
           <ProjectStatsCard projectData={project} milestonesData={milestones} />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 h-full min-h-0">
           <ClientDetailsCard client={client} />
           <MilestonesContainer milestonesData={milestones} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
