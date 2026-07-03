@@ -1,6 +1,7 @@
 import { useProjects } from "../hooks/useProjects";
 import { useAuth } from "../AuthContext";
 import LoadingSpinner from "../components/LoadingSpinner";
+import StackedBarChart from "../components/StackedBarChart";
 
 function DashboardHome() {
   const { admin } = useAuth();
@@ -47,6 +48,7 @@ function DashboardHome() {
             <p className="text-4xl">{pendingProjects}</p>
           </div>
         </div>
+        <StackedBarChart projects={projects} />
       </div>
     </div>
   );
