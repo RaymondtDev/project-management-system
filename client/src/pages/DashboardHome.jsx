@@ -1,7 +1,7 @@
 import { useProjects } from "../hooks/useProjects";
 import { useAuth } from "../AuthContext";
 import LoadingSpinner from "../components/LoadingSpinner";
-import StackedBarChart from "../components/StackedBarChart";
+import BarChart from "../components/BarChart";
 
 function DashboardHome() {
   const { admin } = useAuth();
@@ -24,31 +24,33 @@ function DashboardHome() {
   const pendingProjects = projects?.filter((p) => p.status === "pending").length;
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col min-h-0 h-full">
       <div className="py-3 px-2">
         <p>Welcome back, {admin.username}</p>
       </div>
-      <div className="bg-gray-300 p-2 flex-1 rounded-md grid grid-cols-4 grid-rows-4 gap-2">
+      <div className="p-2 flex-1 rounded-md grid grid-cols-4 grid-rows-4 gap-2 min-h-0 h-full">
         {/* Project Stats */}
-        <div className="col-span-4 grid grid-cols-subgrid gap-2">
-          <div className="text-white px-4 py-6 rounded-md shadow-md bg-linear-90 from-secondary-bg to-tertiary-bg">
+        <div className="col-span-4 grid grid-cols-subgrid gap-2 min-h-0">
+          <div className="text-white px-4 rounded-md shadow-md bg-linear-90 from-secondary-bg to-tertiary-bg py-4">
             <h4 className="mb-4">Total Projects</h4>
             <p className="text-4xl">{totalProjects}</p>
           </div>
-          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+          <div className="px-4 rounded-md shadow-md bg-white py-4">
             <h4 className="mb-4">Completed Projects</h4>
             <p className="text-4xl">{completedProjects}</p>
           </div>
-          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+          <div className="px-4 rounded-md shadow-md bg-white py-4">
             <h4 className="mb-4">Active Projects</h4>
             <p className="text-4xl">{activeProjects}</p>
           </div>
-          <div className="px-4 py-6 rounded-md shadow-md bg-white">
+          <div className="px-4 rounded-md shadow-md bg-white py-4">
             <h4 className="mb-4">Pending Projects</h4>
             <p className="text-4xl">{pendingProjects}</p>
           </div>
         </div>
-        <StackedBarChart projects={projects} />
+        <div className="col-span-3 row-span-3">
+          <BarChart projects={projects} />
+        </div>
       </div>
     </div>
   );
