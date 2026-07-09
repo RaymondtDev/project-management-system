@@ -10,7 +10,7 @@ function DashboardHome() {
 
   if (isLoading)
     return (
-      <div className="h-full w-full text-primary-bg text-lg h-screen flex items-center justify-center">
+      <div className="w-full text-primary-bg text-lg h-screen flex items-center justify-center">
         <div className="size-12">
           <LoadingSpinner />
         </div>
