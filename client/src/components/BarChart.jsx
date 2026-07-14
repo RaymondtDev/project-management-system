@@ -43,7 +43,7 @@ export default function BarChart({ projects }) {
   // Y-axis scale
   const maxVal = Math.max(...DATA.map(d => d.completed), 1);
   const yMax   = Math.ceil(maxVal / 5) * 5 + 2;
-  const yTicks = Array.from({ length: 6 }, (_, i) => Math.round((yMax / 5) * i));
+  const yTicks = Array.from({ length: projects.length }, (_, i) => Math.round((yMax / 4) * i));
 
   // Summary stats
   const total = DATA.reduce((a, d) => a + d.completed, 0);
@@ -67,7 +67,6 @@ export default function BarChart({ projects }) {
       <div
         ref={cardRef}
         className="relative flex flex-col w-full h-full rounded-2xl border border-[#1a3320] bg-primary-bg p-5 overflow-hidden"
-        style={{ boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}
       >
         {/* Ambient glow */}
         <div
