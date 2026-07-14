@@ -17,7 +17,7 @@ function SidePanel() {
   };
 
   return (
-    <div className="bg-linear-to-bl from-primary-bg to-secondary-bg text-white px-2 py-6 h-full rounded-lg flex flex-col justify-between">
+    <div className="bg-primary-bg text-white px-2 py-6 h-full rounded-lg flex flex-col justify-between">
       <nav className="flex flex-col gap-2">
         <h1 className="logo text-lg font-bold mb-4 flex items-center">
           <img className="w-8 h-8" src="/logo.svg" alt="Logo" />
