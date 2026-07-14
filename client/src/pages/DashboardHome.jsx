@@ -26,7 +26,7 @@ function DashboardHome() {
   return (
     <div className="flex flex-col min-h-0 h-full">
       <div className="pb-3 px-2">
-        <p>Welcome back, {admin.username}</p>
+        <h3>Welcome back, {admin.username}</h3>
       </div>
       <div className="px-2 flex-1 rounded-md grid grid-cols-4 grid-rows-4 gap-2 min-h-0 h-full">
         {/* Project Stats */}
