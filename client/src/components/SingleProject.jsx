@@ -33,7 +33,7 @@ export default function SingleProject() {
           <ProjectStatsCard projectData={project} milestonesData={milestones} />
         </div>
         <div className="flex flex-col gap-4 h-full min-h-0">
-          <ClientDetailsCard client={client} />
+          <ClientDetailsCard client={client} project={project} />
           <MilestonesContainer milestonesData={milestones} />
         </div>
       </div>
