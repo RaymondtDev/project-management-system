@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FaCalendar, FaPause, FaPlay } from "react-icons/fa";
+import { ImPriceTag } from "react-icons/im";
 import { updateProjectStatus } from "../utils/api";
 import { useAuth } from "../AuthContext";
 
@@ -63,6 +64,10 @@ export default function ProjectDetailsCard({ projectData }) {
         <div className="flex items-center gap-3">
           <FaCalendar size={10} color="#012100" />
           <small>{dueDate}</small>
+        </div>
+        <div>
+          <ImPriceTag size={10} color="#012100" />
+          <small>R {projectData.price}</small>
         </div>
       </div>
     </div>
