@@ -26,11 +26,13 @@ function CreateProject({ display }) {
   const [project, setProject] = useState({
     title: "",
     description: "",
+    price: "",
     dueDate: "",
   });
   const [client, setClient] = useState({
     name: "",
     email: "",
+    phone: ""
   });
   const [milestones, setMilestones] = useState([initialMilestone()]);
   const steps = ["Project", "Client", "Milestones"];
@@ -79,6 +81,7 @@ function CreateProject({ display }) {
     setProject({
       title: "",
       description: "",
+      price: "",
       dueDate: "",
     });
     setClient({
@@ -169,6 +172,20 @@ function CreateProject({ display }) {
         {step === 0 && (
           <div>
             <h2>Project Details</h2>
+            <div className="flex gap-2">
+              <Field
+                label="Due Date"
+                type="date"
+                value={project.dueDate}
+                onChange={(val) => updateProject("dueDate", val)}
+              />
+              <Field
+                label="Project Cost (in Rands)"
+                type="number"
+                value={project.price}
+                onChange={(val) => updateProject("price", val)}
+              />
+            </div>
             <Field
               label="Project Title"
               placeholder="e.g. Website Redesign"
@@ -181,12 +198,6 @@ function CreateProject({ display }) {
               value={project.description}
               onChange={(val) => updateProject("description", val)}
               textArea
-            />
-            <Field
-              label="Due Date"
-              type="date"
-              value={project.dueDate}
-              onChange={(val) => updateProject("dueDate", val)}
             />
           </div>
         )}
@@ -206,6 +217,13 @@ function CreateProject({ display }) {
               placeholder="e.g. clientname@gmail.com"
               value={client.email}
               onChange={(val) => updateClient("email", val)}
+            />
+            <Field 
+              label="Client Phone"
+              type="phone"
+              placeholder="e.g. (+27)71 234 5678"
+              value={client.phone}
+              onChange={(val) => updateClient("phone", val)}
             />
             <div className="p-4 bg-linear-150 from-primary-bg to-secondary-bg shadow rounded-md mt-2">
               <div className="flex gap-3 items-center text-white">

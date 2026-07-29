@@ -7,6 +7,7 @@ const ProjectSchema = new Schema({
   // project code for client reference, auto-generated
   title: { type: String, required: true },
   description: { type: String },
+  price: { type: Number, required: true },
   admin: { type: Schema.Types.ObjectId, ref: "Admin", required: true },
   client: { type: Schema.Types.ObjectId, ref: "Client" },
   milestones: [{ type: Schema.Types.ObjectId, ref: "Milestone" }],
