@@ -45,6 +45,7 @@ export const createProject = async (req, res) => {
           admin: adminId,
           title: project.title,
           description: project.description,
+          price: project.price,
           dueDate: project.dueDate,
         },
       ],
@@ -57,6 +58,7 @@ export const createProject = async (req, res) => {
         {
           name: client.name,
           email: client.email,
+          phone: client.phone,
           project: newProject._id
         },
       ],
