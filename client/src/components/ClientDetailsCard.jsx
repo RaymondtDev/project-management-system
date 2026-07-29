@@ -9,6 +9,7 @@ export default function ClientDetailsCard({ client, project }) {
         <div>
           <p className="text-xl font-bold">{client.name || "Client Name"}</p>
           <p>{client.email || "clientname@gmail.com"}</p>
+          <small>{client.phone || "(+27)71 234 5678"}</small>
         </div>
       </div>
       <div>
