@@ -1,4 +1,28 @@
+import { toast } from "react-toastify";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { sendInvoiceEmail } from "../utils/api.js";
+import LoadingSpinner from "./LoadingSpinner.jsx";
+
 export default function ClientDetailsCard({ client, project }) {
+  const notify = (message) => toast(message);
+  const queryClient = useQueryClient();
+  const projectId = project._id;
+
+  const sendInvoice = useMutation({
+    mutationFn: (projectId) => sendInvoiceEmail(projectId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["invoice", projectId] });
+      notify("Invoice sent successfully!");
+    },
+    onError: (error) => {
+      notify(`Error sending invoice: ${error.message}`);
+    }
+  })
+
+  const handleSendInvoice = async () => {
+    sendInvoice.mutate(projectId);
+  }
+
   return (
     <div className="px-4 py-6 bg-primary-bg shadow rounded-md text-white h-fit">
       <small className="uppercase">Client Details</small>
@@ -14,8 +38,8 @@ export default function ClientDetailsCard({ client, project }) {
       </div>
       <div>
         { project.status === "completed" && (
-          <button className="py-2 px-4 bg-linear-120 from-secondary-bg to-tertiary-bg rounded-md cursor-pointer mt-5 transition hover:scale-105">
-            Send Invoice
+          <button className="py-2 px-4 bg-linear-120 from-secondary-bg to-tertiary-bg rounded-md cursor-pointer mt-5 transition hover:scale-105 flex items-center justify-center" onClick={handleSendInvoice}>
+            { sendInvoice.isLoading ? (<LoadingSpinner />) : "Send Invoice" }
           </button>
         )}
       </div>

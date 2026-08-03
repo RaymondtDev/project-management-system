@@ -1,16 +1,19 @@
-import "dotenv/config";
 import { renderToBuffer } from "@react-pdf/renderer";
-import { InvoicePDF } from "../lib/invoice-pdf.jsx";
-import { Project } from "../models/ProjectSchema.js";
-import { Invoice } from "../models/InvoiceSchema.js";
+import Project from "../models/ProjectSchema.js";
+import Invoice from "../models/InvoiceSchema.js";
 import { Resend } from "resend";
+import { generateInvoicePDF } from "../lib/invoice-pdf.js";
 
 export const sendInvoiceEmail = async (req, res) => {
   try {
-    const { projectId } = req.params;
+    const { projectId } = req.query;
     const project = await Project.findById(projectId)
-      .populate("client");
+      .populate({
+        path: "client",
+        model: "Client"
+      });
     const resend = new Resend(process.env.RESEND_API_KEY);
+    let invoice;
 
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
@@ -19,23 +22,32 @@ export const sendInvoiceEmail = async (req, res) => {
       return res.status(400).json({ message: "Project is not completed yet" });
     }
 
-    const invoice = await Invoice.create({
-      project: project._id,
-      client: project.client._id,
-      number: `INV-${Date.now()}`,
-      lineItems: [{ description: `Project: ${project.title}`, amount: project.price }],
-      total: project.price
-    })
+    const existingInvoice = await Invoice.findOne({ project: project._id });
+    if (existingInvoice) {
+      invoice = existingInvoice;
+    } else {
+      invoice = await Invoice.create({
+        project: project._id,
+        client: project.client._id,
+        number: `INV-${Date.now()}`,
+        lineItems: [{ description: `Project: ${project.title}`, amount: project.price }],
+        total: project.price
+      })
+    }
 
-    const pdfBuffer = await renderToBuffer(<InvoicePDF invoice={invoice} project={project} client={project.client} />);
+    const pdfBuffer = await generateInvoicePDF({ 
+      invoice,
+      project,
+      client: project.client
+    });
 
     await resend.emails.send({
-      from: "",
-      to: project.client.email,
+      from: "Acme <onboarding@resend.dev>",
+      to: "raymondtdev@gmail.com",
       subject: `Invoice for Project: ${project.title}`,
       html: `<p>Dear ${project.client.name},</p>
-             <p>Please find attached the invoice for the completed project: ${project.title}.</p>
-             <p>Thank you for your business!</p>`,
+            <p>Please find attached the invoice for the completed project: ${project.title}.</p>
+            <p>Thank you for your business!</p>`,
       attachments: [
         {
           filename: `Invoice-${invoice.number}.pdf`,

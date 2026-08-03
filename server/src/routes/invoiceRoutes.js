@@ -4,6 +4,6 @@ import { authenticateAdmin } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/send/:projectId", authenticateAdmin, sendInvoiceEmail);
+router.post("/send", authenticateAdmin, sendInvoiceEmail);
 
 export default router;

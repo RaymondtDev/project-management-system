@@ -13,7 +13,8 @@ const InvoiceSchema = new Schema({
     description: { type: String, required: true },
     amount: { type: Number, required: true }
   }],
-  total: { type: Number, required: true }
+  total: { type: Number, required: true },
+  createdAt: { type: Date, default: Date.now }
 });
 
 const Invoice = mongoose.model("Invoice", InvoiceSchema);

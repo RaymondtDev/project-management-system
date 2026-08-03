@@ -1,4 +1,6 @@
 import "dotenv/config";
+import register from "@babel/register";
+
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -11,6 +13,8 @@ import adminRoutes from "./routes/adminRoutes.js";
 import invoiceRoutes from "./routes/invoiceRoutes.js";
 
 const app = express();
+register({ extensions: [".js", ".jsx", ".ts", ".tsx"] })
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:5173",

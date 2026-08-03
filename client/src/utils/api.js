@@ -75,3 +75,13 @@ export const updateTaskStatus = (id, status) =>
       withCredentials: true,
     },
   );
+
+export const sendInvoiceEmail = (projectId) =>
+  api.post(
+    "/invoices/send",
+    {},
+    {
+      params: { projectId },
+      withCredentials: true
+    }
+  );
