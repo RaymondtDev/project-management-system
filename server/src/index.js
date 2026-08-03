@@ -8,6 +8,7 @@ import milestoneRoutes from "./routes/milestoneRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import refreshTokenRoute from "./routes/refreshTokenRoute.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import invoiceRoutes from "./routes/invoiceRoutes.js";
 
 const app = express();
 app.use(
@@ -24,6 +25,7 @@ app.use("/api/v1/milestones", milestoneRoutes);
 app.use("/api/v1/tasks", taskRoutes);
 app.use("/api/v1/auth", refreshTokenRoute);
 app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/invoices", invoiceRoutes);
 
 const PORT = process.env.PORT || 5000;
 
