@@ -39,7 +39,7 @@ export default function ClientDetailsCard({ client, project }) {
       <div>
         { project.status === "completed" && (
           <button className="py-2 px-4 bg-linear-120 from-secondary-bg to-tertiary-bg rounded-md cursor-pointer mt-5 transition hover:scale-105 flex items-center justify-center" onClick={handleSendInvoice}>
-            { sendInvoice.isLoading ? (<LoadingSpinner />) : "Send Invoice" }
+            { sendInvoice.isPending ? (<LoadingSpinner />) : "Send Invoice" }
           </button>
         )}
       </div>
