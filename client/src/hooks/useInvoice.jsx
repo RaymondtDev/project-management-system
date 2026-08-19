@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { sendInvoiceEmail } from "../utils/api.js";
+import { getInvoices } from "../utils/api.js";
 
 export const useInvoice = (projectId) => {
   return useQuery({
@@ -9,5 +10,16 @@ export const useInvoice = (projectId) => {
       return response.data;
     },
     enabled: !!projectId,
+  });
+};
+
+export const useGetInvoices = (admin) => {
+  return useQuery({
+    queryKey: ["invoices", admin],
+    queryFn: async () => {
+      const response = await getInvoices(admin);
+      return response.data;
+    },
+    enabled: !!admin,
   });
 };
