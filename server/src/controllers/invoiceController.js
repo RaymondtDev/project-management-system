@@ -4,6 +4,54 @@ import Invoice from "../models/InvoiceSchema.js";
 import { Resend } from "resend";
 import { generateInvoicePDF } from "../lib/invoice-pdf.js";
 
+export const downloadInvoice = async (req, res) => {
+  try {
+    const { projectId } = req.query;
+    const project = await Project.findById(projectId)
+      .populate({
+        path: "client",
+        model: "Client"
+      });
+    let invoice;
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+    if (project.status !== "completed") {
+      return res.status(400).json({ message: "Project is not completed yet" });
+    }
+
+    const existingInvoice = await Invoice.findOne({ project: project._id });
+    if (existingInvoice) {
+      invoice = existingInvoice;
+    } else {
+      invoice = await Invoice.create({
+        admin: project.admin._id,
+        project: project._id,
+        client: project.client._id,
+        number: `INV-${Date.now()}`,
+        lineItems: [{ description: `Project: ${project.title}`, amount: project.price }],
+        total: project.price
+      })
+    }
+
+    const pdfBuffer = await generateInvoicePDF({ 
+      invoice,
+      project,
+      client: project.client
+    });
+
+    res.setHeader("Content-type", "application/pdf");
+    res.setHeader('Content-Disposition', 'attachment; filename="generated-file.pdf"');
+
+    res.status(200).send(pdfBuffer);
+
+  } catch (error) {
+    console.error("Error sending pdf:", error);
+    res.status(500).json({ message: "An error occured when sending pdf", error })
+  }
+}
+
 export const sendInvoiceEmail = async (req, res) => {
   try {
     const { projectId } = req.query;
@@ -84,5 +132,18 @@ export const getInvoices = async (req, res) => {
   } catch (error) {
     console.error("Error fetching invoices:", error);
     res.status(500).json({ message: "Error fetching invoices", error });
+  }
+}
+
+export const getInvoiceByProjectId = async (req, res) => {
+  try {
+    const { projectId } = req.query;
+
+    const invoice = await Invoice.findOne({ project: projectId });
+
+    res.status(200).json({ invoice });
+  } catch (error) {
+    console.error("Error fetching invoice:", error);
+    res.status(500).json({ message: "Error fetching invoice", error });
   }
 }
