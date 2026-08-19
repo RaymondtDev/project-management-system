@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const InvoiceSchema = new Schema({
+  admin: { type: Schema.Types.ObjectId, ref: "Admin", required: true },
   project: { type: Schema.Types.ObjectId, ref: "Project", requred: true },
   client: { type: Schema.Types.ObjectId, ref: "Client", requred: true },
   number: { type: String, requred: true },

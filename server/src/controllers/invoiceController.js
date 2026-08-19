@@ -27,6 +27,7 @@ export const sendInvoiceEmail = async (req, res) => {
       invoice = existingInvoice;
     } else {
       invoice = await Invoice.create({
+        admin: project.admin._id,
         project: project._id,
         client: project.client._id,
         number: `INV-${Date.now()}`,
@@ -62,5 +63,26 @@ export const sendInvoiceEmail = async (req, res) => {
   } catch (error) {
     console.error("Error sending invoice email:", error);
     res.status(500).json({ message: "Error sending invoice email", error });
+  }
+}
+
+export const getInvoices = async (req, res) => {
+  try {
+    const { admin } = req.query;
+
+    const invoices = await Invoice.find({ admin: admin })
+      .populate({
+        path: "project",
+        model: "Project"
+      })
+      .populate({
+        path: "client",
+        model: "Client"
+      });
+
+    res.status(200).json({ invoices });
+  } catch (error) {
+    console.error("Error fetching invoices:", error);
+    res.status(500).json({ message: "Error fetching invoices", error });
   }
 }

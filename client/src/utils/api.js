@@ -76,6 +76,12 @@ export const updateTaskStatus = (id, status) =>
     },
   );
 
+export const getInvoices = (admin) =>
+  api.get("/invoices", {
+    params: { admin },
+    withCredentials: true,
+  });
+
 export const sendInvoiceEmail = (projectId) =>
   api.post(
     "/invoices/send",
