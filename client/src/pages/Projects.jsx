@@ -35,7 +35,7 @@ function Projects() {
     <div className="relative flex flex-col h-full">
       <ToastContainer />
       <div className="flex justify-between">
-        <h1 className="text-2xl text-primary-bg font-bold">Projects</h1>
+        <h1 className="text-2xl text-primary-bg font-bold mt-2">Projects</h1>
         <button
           onClick={() => setDisplay(true)}
           className="flex items-center gap-1.5 p-1.5 rounded-full bg-primary-bg text-white cursor-pointer transition hover:scale-105"

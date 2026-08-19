@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import SingleProject from "./components/SingleProject";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Invoices from "./pages/Invoices";
 
 const AppRoutes = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const AppRoutes = createBrowserRouter([
       { index: true, element: <DashboardHome /> },
       { path: "projects", element: <Projects /> },
       { path: "projects/p/:id", element: <SingleProject /> },
+      { path: "invoices", element: <Invoices /> },
     ],
   },
   {

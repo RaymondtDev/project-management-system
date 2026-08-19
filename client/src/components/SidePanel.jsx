@@ -2,6 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdLogout, MdSpaceDashboard } from "react-icons/md";
 import { AiFillProject } from "react-icons/ai";
 import { adminLogout } from "../utils/api";
+import { FaFileInvoiceDollar } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
 
 function SidePanel() {
   const location = useLocation();
@@ -42,6 +44,14 @@ function SidePanel() {
 
  />
           Projects
+        </Link>
+        <Link to="/invoices" className={`group flex items-center gap-4 py-2 rounded-md px-2 transition hover:text-primary-bg hover:font-lightbold hover:bg-white ${location.pathname === "/invoices" && "bg-white text-primary-bg font-lightbold"}`}>
+          <FaFileInvoiceDollar className="transition group-hover:fill-primary-bg" color={`${location.pathname === "/invoices" ? "#012100" : "#ffffff"}`} size={25} />
+          Invoices
+        </Link>
+        <Link to="#" className={`group flex items-center gap-4 py-2 rounded-md px-2 transition hover:text-primary-bg hover:font-lightbold hover:bg-white ${location.pathname === "/settings" && "bg-white text-primary-bg font-lightbold"}`}>
+          <IoMdSettings className="transition group-hover:fill-primary-bg" color={`${location.pathname === "/settings" ? "#012100" : "#ffffff"}`} size={25} />
+          Settings
         </Link>
       </nav>
       <button
