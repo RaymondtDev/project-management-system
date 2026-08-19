@@ -76,6 +76,12 @@ export const updateTaskStatus = (id, status) =>
     },
   );
 
+export const getInvoice = (projectId) =>
+  api.get("/invoices/single", {
+    params: { projectId },
+    withCredentials: true
+  })
+
 export const getInvoices = (admin) =>
   api.get("/invoices", {
     params: { admin },
@@ -91,3 +97,10 @@ export const sendInvoiceEmail = (projectId) =>
       withCredentials: true
     }
   );
+
+export const downloadInvoice = (projectId) =>
+  api.get("/invoices/download", {
+    params: { projectId },
+    withCredentials: true,
+    responseType: "blob"
+  });

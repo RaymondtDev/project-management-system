@@ -39,7 +39,7 @@ function Invoices() {
             </thead>
             <tbody className="bg-gray-300">
               { invoices?.map(invoice => (
-                <tr className="divide-x divide-gray-400">
+                <tr className="divide-x divide-gray-400" key={invoice._id}>
                   <td className="font-bold max-w-30 truncate">#{invoice.number}</td>
                   <td className="max-w-60 truncate">{invoice.project.title}</td>
                   <td>{invoice.client.name}</td>

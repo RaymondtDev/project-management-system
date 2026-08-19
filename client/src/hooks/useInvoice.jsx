@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { sendInvoiceEmail } from "../utils/api.js";
+import { getInvoice, sendInvoiceEmail } from "../utils/api.js";
 import { getInvoices } from "../utils/api.js";
 
 export const useInvoice = (projectId) => {
@@ -12,6 +12,17 @@ export const useInvoice = (projectId) => {
     enabled: !!projectId,
   });
 };
+
+export const useGetSingleInvoice = (projectId) => {
+  return useQuery({
+    queryKey: [ "single-ivoice", projectId ],
+    queryFn: async () => {
+      const response = await getInvoice(projectId);
+      return response.data;
+    },
+    enabled: !!projectId
+  })
+}
 
 export const useGetInvoices = (admin) => {
   return useQuery({
