@@ -4,7 +4,7 @@ import { useAuth } from "./AuthContext";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 function Dashboard() {
-  const { loading, admin } = useAuth();
+  const { admin, loading } = useAuth();
 
   if (loading)
     return (
@@ -15,18 +15,9 @@ function Dashboard() {
       </div>
     );
 
-  if (admin === null)
-    return (
-      <div className="h-screen flex items-center justify-center">
-        Checking Authentication...
-      </div>
-    );
-
-  setTimeout(() => {
-    if (!admin) {
-      return <Navigate to="/login" replace />;
-    }
-  }, 2000);
+  if (!admin) {
+    return <Navigate to="/login" replace />;
+  }
 
   return (
     <div className="h-screen bg-slate-200 grid grid-cols-[auto_1fr]">

@@ -4,7 +4,7 @@ import { useAuth } from "../AuthContext";
 import { Link } from "react-router-dom";
 
 export default function Register() {
-  const { register, loading } = useAuth();
+  const { register } = useAuth();
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 export default function Login() {
-  const { login, loading, admin } = useAuth();
+  const { login, loading } = useAuth();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [checked, setChecked] = useState(false);
@@ -32,21 +32,23 @@ export default function Login() {
 
   return (
     <div className="h-screen w-full flex justify-center items-center bg-linear-to-br from-primary-bg to-secondary-bg">
-      <div className="py-4 px-8 bg-white rounded-md shadow-md md:w-1/2">
-        <h1 className="mb-4 text-primary-bg">Login</h1>
+      <div className="py-4 px-8 bg-white rounded-md shadow-md md:w-1/3">
+        <h1 className="mb-4 text-primary-bg text-center">Login</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">
-            <p>Email:</p>
-            <input
-              type="email"
-              className="mb-2"
-              id="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <p className="mb-1">Email:</p>
+            <div className="mb-3 px-1.5 rounded-full outline-2 outline-primary-bg/30 focus-within:outline-primary-bg">
+              <input
+                type="email"
+                className="border-none outline-none"
+                id="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
           </label>
           <label htmlFor="password">
-            <p>Password:</p>
-            <div className="flex gap-1.5">
+            <p className="mb-1">Password:</p>
+            <div className="flex gap-1.5 outline-2 outline-primary-bg/30 rounded-full px-1.5 focus-within:outline-primary-bg mb-2">
               <input
                 type="checkbox"
                 ref={checkboxRef}
@@ -58,19 +60,20 @@ export default function Login() {
                 type={checked ? "text" : "password"}
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
+                className="border-none outline-none"
               />
-              <button onClick={handleCheck} className="cursor-pointer px-1">
+              <button onClick={handleCheck} className="cursor-pointer">
                 {checked ? (
-                  <FaRegEyeSlash className="hover:fill-lime-100 w-12 aspect-square" />
+                  <FaRegEyeSlash className="w-12 aspect-square" />
                 ) : (
-                  <FaRegEye className="hover:fill-lime-100 w-12 aspect-square" />
+                  <FaRegEye className="w-12 aspect-square" />
                 )}
               </button>
             </div>
           </label>
           <button
             type="submit"
-            className="py-2 px-4 cursor-pointer bg-primary-btn rounded-md mt-2"
+            className="py-2 px-4 cursor-pointer bg-primary-btn rounded-full mt-2 w-full"
           >
             Login
           </button>
