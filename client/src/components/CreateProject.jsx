@@ -227,7 +227,7 @@ function CreateProject({ display }) {
             />
             <div className="p-4 bg-linear-150 from-primary-bg to-secondary-bg shadow rounded-md mt-2">
               <div className="flex gap-3 items-center text-white">
-                <div className="flex items-center justify-center w-14 aspect-square rounded-full bg-linear-45 from-secondary-bg to-primary-bg border-1 border-lime-100">
+                <div className="flex items-center justify-center w-14 aspect-square rounded-full bg-linear-45 from-secondary-bg to-primary-bg border border-lime-100">
                   {client.name ? client.name[0].toUpperCase() : "?"}
                 </div>
                 <div>
