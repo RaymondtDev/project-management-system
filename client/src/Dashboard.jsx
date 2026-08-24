@@ -6,6 +6,13 @@ import LoadingSpinner from "./components/LoadingSpinner";
 function Dashboard() {
   const { admin, loading } = useAuth();
 
+  if (!admin) 
+    return (
+      <div className="w-full text-primary-bg text-lg h-screen flex items-center justify-center">
+        <p>Checking Admin...</p>
+      </div>
+    )
+
   if (loading)
     return (
       <div className="w-full text-primary-bg text-lg h-screen flex items-center justify-center">
