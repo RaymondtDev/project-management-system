@@ -55,3 +55,16 @@ export const updateMilestoneStatus = async (req, res) => {
     res.status(500).json({ message: "Error updating milestone status", error });
   }
 }
+
+export const deleteMilestone = async (req, res) => {
+  try {
+    const { milestoneId } = req.query;
+
+    const milestone = await Milestone.findOneAndDelete({ id: milestoneId });
+
+    res.status(200).json({ message: "Milestone deleted successfully" })
+  } catch (error) {
+    console.error("Error deleting milestone:", error);
+    res.status(500).json({ message: "Error deleting milestone", error })
+  }
+}

@@ -104,3 +104,19 @@ export const downloadInvoice = (projectId) =>
     withCredentials: true,
     responseType: "blob"
   });
+
+
+export const createMilestone = (title, projectId) => 
+  api.post(
+    "/milestones",
+    { title, projectId },
+    {
+      withCredentials: true
+    }
+  )
+
+export const deleteMilestone = (milestoneId) =>
+  api.delete("/milestones/m/delete", {
+    params: { milestoneId },
+    withCredentials: true
+  })
