@@ -48,7 +48,7 @@ export default function Login() {
           </label>
           <label htmlFor="password">
             <p className="mb-1">Password:</p>
-            <div className="flex gap-1.5 outline-2 outline-primary-bg/30 rounded-full px-1.5 focus-within:outline-primary-bg mb-2">
+            <div className="flex gap-1.5 outline-2 outline-primary-bg/30 rounded-full px-1.5 focus-within:outline-primary-bg">
               <input
                 type="checkbox"
                 ref={checkboxRef}
@@ -73,12 +73,12 @@ export default function Login() {
           </label>
           <button
             type="submit"
-            className="py-2 px-4 cursor-pointer bg-primary-btn rounded-full mt-2 w-full"
+            className="py-2 px-4 cursor-pointer bg-primary-btn rounded-full mt-4 w-full"
           >
             Login
           </button>
         </form>
-        <p className="mt-4">
+        <p className="mt-4 text-center">
           Don't have an account?{" "}
           <Link to="/register" className="text-secondary-bg">
             register
