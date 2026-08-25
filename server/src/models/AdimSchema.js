@@ -1,4 +1,4 @@
-import { Schema, mongoose } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 
 const AdminSchema = new Schema({

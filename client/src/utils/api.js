@@ -115,8 +115,12 @@ export const createMilestone = (title, projectId) =>
     }
   )
 
+export const updateMilestone = (title, milestoneId) =>
+  api.put(`/milestones/${milestoneId}`, { title }, {
+    withCredentials: true
+  })
+
 export const deleteMilestone = (milestoneId) =>
-  api.delete("/milestones/m/delete", {
-    params: { milestoneId },
+  api.delete(`/milestones/${milestoneId}/delete`, {
     withCredentials: true
   })

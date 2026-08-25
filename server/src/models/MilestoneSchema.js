@@ -1,4 +1,6 @@
 import mongoose, { Schema } from "mongoose";
+import Task from "./TaskSchema.js";
+import Project from "./ProjectSchema.js";
 
 const MilestoneSchema = new Schema({
   title: { type: String, required: true },
@@ -50,6 +52,15 @@ MilestoneSchema.post('save', async function() {
   if (project) {
     await project.calculateProgress();
     await project.save();
+  }
+});
+MilestoneSchema.post('findOneAndDelete', async function(doc) {
+  if (doc) {
+    await Task.deleteMany({ milestone: doc._id });
+    await Project.updateMany(
+      { milestones: doc._id },
+      { $pull: { milestones: doc._id } }
+    );
   }
 });
 

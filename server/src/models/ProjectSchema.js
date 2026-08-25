@@ -2,6 +2,8 @@ import mongoose, { Schema } from "mongoose";
 import Milestone from "./MilestoneSchema.js";
 import Task from "./TaskSchema.js";
 import Client from "./ClientSchema.js";
+import Admin from "./AdimSchema.js";
+import Invoice from "./InvoiceSchema.js";
 
 const ProjectSchema = new Schema({
   // project code for client reference, auto-generated
@@ -60,7 +62,11 @@ ProjectSchema.post("findOneAndDelete", async function(doc) {
   if (doc) {
     await Client.deleteMany({ project: doc._id });
     await Milestone.deleteMany({ project: doc._id });
-    await Task.deleteMany({ project: doc._id });
+    await Invoice.deleteMany({ project: doc._id });
+    await Admin.updateMany(
+      { projects: doc._id },
+      { $pull: { projects: doc._id } }
+    );
   }
 });
 

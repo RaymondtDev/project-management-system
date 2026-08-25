@@ -33,10 +33,10 @@ export const createMilestone = async (req, res) => {
 }
 
 // update milestone status
-export const updateMilestoneStatus = async (req, res) => {
+export const updateMilestoneTitle = async (req, res) => {
   try {
     const { milestoneId } = req.params;
-    const { status } = req.body;
+    const { title } = req.body;
 
     // find milestone by id
     const milestone = await Milestone.findById(milestoneId);
@@ -45,22 +45,24 @@ export const updateMilestoneStatus = async (req, res) => {
     }
 
     // update milestone status
-    milestone.status = status;
+    milestone.title = title;
     await milestone.save();
 
-    res.status(200).json({ message: "Milestone status updated successfully", milestone });
+    res.status(200).json({ message: "Milestone title updated successfully", milestone });
 
   } catch (error) {
-    console.error("Error updating milestone status:", error);
-    res.status(500).json({ message: "Error updating milestone status", error });
+    console.error("Error updating milestone title:", error);
+    res.status(500).json({ message: "Error updating milestone title", error });
   }
 }
 
 export const deleteMilestone = async (req, res) => {
   try {
-    const { milestoneId } = req.query;
+    const { milestoneId } = req.params;
 
-    const milestone = await Milestone.findOneAndDelete({ id: milestoneId });
+    const milestone = await Milestone.findByIdAndDelete(milestoneId);
+
+    if (!milestone) res.status(404).json({ message: "Milestone not found" });
 
     res.status(200).json({ message: "Milestone deleted successfully" })
   } catch (error) {

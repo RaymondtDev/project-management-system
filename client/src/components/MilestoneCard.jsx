@@ -1,8 +1,9 @@
 import { useState } from "react";
 import TaskRow from "./TaskRow";
 import { RxCross2, RxCheck } from "react-icons/rx";
+import { IoIosArrowDown } from "react-icons/io";
 
-export default function MilestoneCard({ milestone, index }) {
+export default function MilestoneCard({ milestone, deleteFunc, updateFunc }) {
   const tasks = milestone.tasks;
   const [display, setDisplay] = useState(false);
   const [menuDis, setMenuDis] = useState(false);
@@ -17,7 +18,9 @@ export default function MilestoneCard({ milestone, index }) {
       <div className="flex items-center justify-between p-2 bg-primary-bg relative">
         <div className="flex items-center gap-2">
           <div className="size-8 bg-linear-120 from-secondary-bg to-tertiary-bg rounded-full flex items-center justify-center">
-            {index + 1}
+            <span className={`${display && 'rotate-180'} transition`}>
+              <IoIosArrowDown />
+            </span>
           </div>
           { milestoneTitleInpt ? (
             <div className="flex items-center gap-1">
@@ -29,7 +32,10 @@ export default function MilestoneCard({ milestone, index }) {
                 style={{ borderRadius: "100px" }}
               />
               <button
-                onClick={() => setMilestoneTitleInpt(false)}
+                onClick={() => {
+                  updateFunc(milestoneTitle, milestone._id)
+                  setMilestoneTitleInpt(false)}
+                }
                 className="p-2 bg-tertiary-bg text-white rounded-full hover:bg-secondary-bg/80"
               >
                 <RxCheck />
@@ -54,9 +60,19 @@ export default function MilestoneCard({ milestone, index }) {
             <span className="size-1 rounded-full bg-white"></span>
           </div>
           <div className={`${!menuDis && "hidden"} bg-gray-50 text-black p-2 rounded-sm absolute bottom-[35%] right-10 z-50 shadow-lg flex flex-col gap-1`}>
-            <small className="hover:bg-gray-200 cursor-pointer p-1" onClick={() => setDisplayInpt(!displayInpt)}>Add Task</small>
-            <small className="hover:bg-gray-200 cursor-pointer p-1" onClick={() => setMilestoneTitleInpt(!milestoneTitleInpt)}>Edit Title</small>
-            <small className="hover:bg-gray-200 cursor-pointer p-1">Delete Milestone</small>
+            <small className="hover:bg-gray-200 cursor-pointer p-1" onClick={() => {
+              setDisplayInpt(!displayInpt)
+              setMenuDis(false)
+              setDisplay(true)
+            }}>Add Task</small>
+            <small className="hover:bg-gray-200 cursor-pointer p-1" onClick={() => {
+              setMilestoneTitleInpt(!milestoneTitleInpt)
+              setMenuDis(false)
+            }}>Edit Title</small>
+            <small className="hover:bg-gray-200 cursor-pointer p-1" onClick={() => {
+              deleteFunc(milestone._id)
+              setMenuDis(false)
+            }}>Delete Milestone</small>
           </div>
         </div>
       </div>
