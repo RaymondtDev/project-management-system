@@ -31,7 +31,7 @@ function Dashboard() {
       <aside className="w-64 py-3 pl-3">
         <SidePanel />
       </aside>
-      <main className="p-3 h-screen">
+      <main className="p-3 h-screen overflow-y-auto">
         <Outlet />
       </main>
     </div>

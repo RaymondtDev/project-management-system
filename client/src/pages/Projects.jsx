@@ -69,7 +69,7 @@ function Projects() {
         </div>
 
         {projects.length > 0 ? (
-          <div className="w-full h-full flex-1 overflow-y-auto">
+          <div className="w-full h-full flex-1">
             {list ? (
               <ProjectsList projects={projects} />
             ) : (
