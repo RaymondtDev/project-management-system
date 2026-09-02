@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import { Link } from "react-router-dom";
 
 export default function Register() {

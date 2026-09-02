@@ -1,4 +1,4 @@
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import ProjectRow from "./ProjectRow";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { deleteProject, updateProjectStatus } from "../utils/api";

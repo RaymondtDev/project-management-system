@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProjectsSkeleton from "../components/ProjectsSkeleton";
 import { useProjects } from "../hooks/useProjects";
 import CreateProject from "../components/CreateProject";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import { FaPlus, FaList } from "react-icons/fa";
 import { TbLayoutKanbanFilled } from "react-icons/tb";
 import StatusIndicators from "../components/StatusIndicators";

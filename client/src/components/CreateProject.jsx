@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { RxCross2 } from "react-icons/rx";
 import {

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 

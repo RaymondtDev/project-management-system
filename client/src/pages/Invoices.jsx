@@ -1,6 +1,6 @@
-import { useGetInvoices } from "../hooks/useInvoice.jsx";
-import { useAuth } from "../AuthContext.jsx";
-import LoadingSpinner from "../components/LoadingSpinner.jsx";
+import { useGetInvoices } from "../hooks/useInvoice";
+import { useAuth } from "../UseAuth";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function Invoices() {
   const { admin } = useAuth();

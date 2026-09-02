@@ -1,5 +1,5 @@
 import { useProjects } from "../hooks/useProjects";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../UseAuth";
 import LoadingSpinner from "../components/LoadingSpinner";
 import BarChart from "../components/BarChart";
 import DashboardCalendar from "../components/DashboardCalendar";

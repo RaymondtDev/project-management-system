@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import SidePanel from "./components/SidePanel";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "./UseAuth";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 function Dashboard() {
