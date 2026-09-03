@@ -37,7 +37,7 @@ function Invoices() {
                 <th>Total</th>
               </tr>
             </thead>
-            <tbody className="bg-gray-300">
+            <tbody className="bg-gray-300 [&>tr:nth-child(even)]:bg-gray-500/40">
               { invoices?.map(invoice => (
                 <tr className="divide-x divide-gray-400" key={invoice._id}>
                   <td className="font-bold max-w-30 truncate">#{invoice.number}</td>

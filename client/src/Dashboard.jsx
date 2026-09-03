@@ -28,7 +28,7 @@ function Dashboard() {
 
   return (
     <div className="h-screen bg-slate-200 grid grid-cols-[auto_1fr]">
-      <aside className="w-64 py-3 pl-3">
+      <aside className="w-58 py-3 pl-3">
         <SidePanel />
       </aside>
       <main className="p-3 h-screen overflow-y-auto">
