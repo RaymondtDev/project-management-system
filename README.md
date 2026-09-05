@@ -2,13 +2,13 @@
 
 Freelance project management system for managing projects, milestones, tasks, and clients. Built using the MERN stack, project serves as a demonstration of skills learned and competence. It took me close to 4 months to build, and as I continue to learn new skills, it will continue to grow in the number of features present.
 
-I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory.
+I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory,
 
 ## Tech Stack
-![Static Badge](https://img.shields.io/badge/MongoDB-47A248&logo=mongodb&logoColor=white&style=flat)
-![Static Badge](https://img.shields.io/badge/ExressJS-0A0A0A&logo=express&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/MongoDB-#47A248&logo=mongodb&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/ExressJS-#0A0A0A&logo=express&logoColor=white&style=flat)
 ![Static Badge](https://img.shields.io/badge/ReactJS-61DAFB?logo=react&logoColor=white&style=flat)
-![Static Badge](https://img.shields.io/badge/NodeJS-5FA04E&logo=nodedotjs&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/NodeJS-#FFB71B&logo=nodedotjs&logoColor=black&style=flat)
 
 # Features
 
