@@ -9,6 +9,7 @@ I was motivated to build this particular project primarily because I wanted to b
 ![Static Badge](https://img.shields.io/badge/ExressJS-0A0A0A?logo=express&logoColor=white&style=flat)
 ![Static Badge](https://img.shields.io/badge/ReactJS-61DAFB?logo=react&logoColor=white&style=flat)
 ![Static Badge](https://img.shields.io/badge/-NodeJS-FFB71B?logo=nodedotjs&logoColor=black&style=flat)
+![Static Badge](https://img.shields.io/badge/-TanStack-ECE8D1?logo=tanstack&logoColor=black&style=flat)
 
 # Features
 
