@@ -1,6 +1,6 @@
 # Project Management System
 
-Freelance project management system for managing projects, milestones, tasks, and clients. Built using the MERN stack, project serves as a demonstration of skills learned and competence. It took me close to 4 months to build, and as I continue to learn new skills, it will continue to grow in the number of features present.
+Freelance project management system for managing projects, milestones, tasks, and clients.
 
 I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory,
 
