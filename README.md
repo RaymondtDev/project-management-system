@@ -7,7 +7,7 @@ I was motivated to build this particular project primarily because I wanted to b
 ## Tech Stack
 ![MongoDB](https://shields.io)
 ![Express.js](https://shields.io)
-![Static Badge](https://img.shields.io/badge/-ReactJS)
+![Static Badge](https://img.shields.io/badge/ReactJs-61DAFB?logo=react)
 ![Node.js](https://shields.io)
 
 # Features
