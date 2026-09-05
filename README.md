@@ -4,6 +4,12 @@ Freelance project management system for managing projects, milestones, tasks, an
 
 I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory.
 
+## Tech Stack
+![MongoDB](https://shields.io)
+![Express.js](https://shields.io)
+![React](https://shields.io)
+![Node.js](https://shields.io)
+
 # Features
 
 Initially, I planned the project to only have basic CRUD features which would've made it akin to a task manager application. But as I kept on working, I ended up wanting to include features like invoice creation and generating a PDF for it. This part of the development was especially challenging because I had no clue how implement certain features (like creating a project and then its milestones and tasks simultaneously).
