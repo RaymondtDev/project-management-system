@@ -10,7 +10,7 @@ Freelance project management system for managing projects, milestones, tasks, an
 ![Static Badge](https://img.shields.io/badge/-TanStack-ECE8D1?logo=tanstack&logoColor=black&style=flat)
 ![Static Badge](https://img.shields.io/badge/-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=flat)
 
-I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory,
+I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory.
 
 # Features
 
