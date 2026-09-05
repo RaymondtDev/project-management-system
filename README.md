@@ -5,10 +5,10 @@ Freelance project management system for managing projects, milestones, tasks, an
 I was motivated to build this particular project primarily because I wanted to build something that serves as a demonstration of my skills and competence. Insted of building something simple, I instead tried to come up with an idea for an application I could potentially use in a real-world situation. Thus, I built a project management system that I would use if I ever pursued freelancing as a carrer trajectory.
 
 ## Tech Stack
-![MongoDB](https://shields.io)
-![Express.js](https://shields.io)
-![Static Badge](https://img.shields.io/badge/ReactJs-61DAFB?logo=react)
-![Node.js](https://shields.io)
+![Static Badge](https://img.shields.io/badge/MongoDB-47A248&logo=mongodb&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/ExressJS-0A0A0A&logo=express&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/ReactJS-61DAFB?logo=react&logoColor=white&style=flat)
+![Static Badge](https://img.shields.io/badge/NodeJS-5FA04E&logo=nodedotjs&logoColor=white&style=flat)
 
 # Features
 
